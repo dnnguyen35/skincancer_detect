@@ -1,0 +1,27 @@
+# Python cache & pyc files
+ai-service/__pycache__/
+ai-service/*.py[cod]
+ai-service/*$py.class
+
+# Virtual environment
+ai-service/skincancer-venv/
+ai-service/skincancer-env/
+ai-service/*.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+ai-service/*.log
+
+# IDE files
+ai-service/.vscode/
+ai-service/.idea/
+ai-service/*.sublime-project
+ai-service/*.sublime-workspace
+
+# Python packages
+ai-service/*.egg-info/
+ai-service/dist/
+ai-service/build/
