@@ -19,7 +19,7 @@ publicClient.interceptors.request.use((config) => {
 
 publicClient.interceptors.response.use(
   <T>(response: AxiosResponse<T>) => {
-    return response.data;
+    return response;
   },
   (error) => {
     throw error.response?.data || error;
