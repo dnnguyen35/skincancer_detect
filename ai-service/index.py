@@ -3,8 +3,17 @@ from ultralytics import YOLO
 import time
 import os, shutil, uuid
 import cv2
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="2-Stage YOLO Skin Cancer Detection")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load models
 model_stage1 = YOLO("./model/best.pt")
