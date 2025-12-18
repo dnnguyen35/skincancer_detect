@@ -2,7 +2,6 @@ import { AppBar, Toolbar, Stack, IconButton } from "@mui/material";
 import { WbSunnyOutlined, DarkModeOutlined } from "@mui/icons-material";
 import { themeModes } from "../config/theme.config";
 import Logo from "./Logo";
-import LanguageToggle from "./LanguageToggle";
 
 const Header = () => {
   return (
@@ -21,7 +20,7 @@ const Header = () => {
           alignItems="center"
           sx={{ display: { xs: "none", sm: "flex" } }}
         >
-          <LanguageToggle />
+          {/* <LanguageToggle /> */}
           <IconButton sx={{ color: "inherit" }} onClick={() => {}}>
             {themeModes.light ? <WbSunnyOutlined /> : <DarkModeOutlined />}
           </IconButton>

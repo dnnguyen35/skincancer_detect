@@ -12,7 +12,7 @@ const MainLayout = () => {
           bgcolor: "background.default",
           color: "text.primary",
           height: "100vh",
-          gap: 2,
+          gap: { xs: 0, sm: 2 },
         }}
       >
         <Box sx={{ flexShrink: 1 }}>
@@ -22,7 +22,7 @@ const MainLayout = () => {
         <Box
           sx={{
             flex: 1,
-            py: 2,
+            py: { xs: 0, sm: 2 },
             px: { xs: 1, sm: 2 },
             scrollBehavior: "smooth",
             scrollbarWidth: "none",
