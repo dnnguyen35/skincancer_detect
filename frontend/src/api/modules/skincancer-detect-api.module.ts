@@ -1,5 +1,5 @@
-import type { PredictResponse } from "../../type";
 import publicClient from "../client/public.client";
+import type { PredictResponse } from "../../type";
 
 const skincancerDetectEndpoitns = {
   detect: "/detect",
@@ -12,10 +12,9 @@ const skincancerDetectApi = {
         skincancerDetectEndpoitns.detect,
         formData
       );
-
-      return { response };
-    } catch (error) {
-      return { error };
+      return { response: response.data, error: null };
+    } catch (error: any) {
+      return { response: null, error: error.response?.data || error };
     }
   },
 };

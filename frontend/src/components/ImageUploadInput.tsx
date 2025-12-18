@@ -6,6 +6,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { toast } from "react-toastify";
 import PredictDialog from "./PredictResultDialog";
 import skincancerDetectApi from "../api/modules/skincancer-detect-api.module";
+import type { PredictResponse } from "../type";
 
 const ImageUploadInput = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -15,7 +16,7 @@ const ImageUploadInput = () => {
 
   const [isRequest, setIsRequest] = useState<boolean>(false);
   const [predictDialogOpen, setPredictDialogOpen] = useState<boolean>(false);
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState<PredictResponse | null>(null);
 
   const handleFile = (file: File) => {
     if (!file.type.startsWith("image/")) {
