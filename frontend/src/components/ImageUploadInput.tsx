@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import type { DragEvent, ChangeEvent } from "react";
 import { Box, Typography, IconButton, Button } from "@mui/material";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
@@ -6,7 +6,6 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { toast } from "react-toastify";
 import PredictDialog from "./PredictResultDialog";
 import skincancerDetectApi from "../api/modules/skincancer-detect-api.module";
-import type { PredictResponse } from "../type";
 
 const ImageUploadInput = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -16,7 +15,7 @@ const ImageUploadInput = () => {
 
   const [isRequest, setIsRequest] = useState<boolean>(false);
   const [predictDialogOpen, setPredictDialogOpen] = useState<boolean>(false);
-  const [result, setResult] = useState<PredictResponse | null>(null);
+  const [result, setResult] = useState(null);
 
   const handleFile = (file: File) => {
     if (!file.type.startsWith("image/")) {
@@ -79,6 +78,12 @@ const ImageUploadInput = () => {
       setPredictDialogOpen(true);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (preview) URL.revokeObjectURL(preview);
+    };
+  }, [preview]);
 
   return (
     <>
